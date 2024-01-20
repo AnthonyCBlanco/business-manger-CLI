@@ -43,5 +43,7 @@ class Questions {
             name: 'update_employee'
         }
     ]
-    
+    main_prompt = function(){
+        inquirer.prompt(main)
+    }
 }
