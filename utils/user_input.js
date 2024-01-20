@@ -1,6 +1,5 @@
 const inquirer = require('inquirer')
 
-//
 class Questions {
     main = [
         {
@@ -42,8 +41,7 @@ class Questions {
             message: 'Please Enter The ID or Full Name Of the Employee',
             name: 'update_employee'
         }
-    ]
-    main_prompt = function(){
-        inquirer.prompt(main)
-    }
+    ]  
 }
+
+module.exports = Questions
