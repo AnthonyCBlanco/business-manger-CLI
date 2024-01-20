@@ -12,10 +12,36 @@ class Questions {
     ] 
     add_department = [
         {
-            type: 'input'
-            message: ''
+            type: 'input',
+            message: 'Please Enter the Department You Would Like to Add',
+            name: 'add_department'
         }
     ]
-
+    add_role = [
+        {
+            type: 'input',
+            message: 'Please Enter the Role You Would Like to Add',
+            name: 'add_role'
+        }
+    ]
+    add_employee = [
+        {
+            type: 'input',
+            message: 'Please Enter the First Name Of the Employee You Would Like to Add',
+            name: 'add_employee_first_name'
+        },
+        {
+            type: 'input',
+            message: 'Please Enter the Last Name Of the Employee You Would Like to Add',
+            name: 'add_employee_last_name'
+        }
+    ]
+    update_employee_role = [
+        {
+            type: 'input',
+            message: 'Please Enter The ID or Full Name Of the Employee',
+            name: 'update_employee'
+        }
+    ]
     
 }
