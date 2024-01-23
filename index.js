@@ -9,26 +9,12 @@ function start(){
     inquirer.prompt(Questions.main)
         .then((data) => {
             switch(data.main){
-                case 'View All Roles' || 'View All Departments' || 'View All Employees':
+                case 'View All Roles':
+                case 'View All Departments': 
+                case 'View All Employees':
                     displayDATA(data.main)
                     break
-                    
-                
-    
-                case 'Add Department':
-                    inquirer.prompt(Questions.add_department).then((data) =>{
-                        console.log(data)
-                        return data
-                    })
-                    break
-    
-                case 'Add Role':
-                    inquirer.prompt(Questions.add_role).then((data) =>{
-                        console.log(data.add_role)
-                        return data
-                    })
-                    break
-    
+                                       
                 case 'Add An Employee':
                     inquirer.prompt(Questions.add_employee).then((data) =>{
                         console.log(data.add_employee)
@@ -71,6 +57,11 @@ function displayDATA(table){
             })
         break
     }
+}
+
+function addDATA(table){
+    const Connection = require('./utils/database.js')
+    switch(table)
 }
 
 function addNewData(table, newData){
