@@ -21,6 +21,16 @@ class Questions {
             type: 'input',
             message: 'Please Enter the Role You Would Like to Add',
             name: 'add_role'
+        },
+        {
+            type: 'input',
+            message: 'Please Enter the salary for the role',
+            name: 'add_role_salary'
+        },
+        {
+            type: 'input',
+            message: 'Please Enter the Role Department ID',
+            name: 'add_role_department'
         }
     ]
     add_employee = [
@@ -33,13 +43,28 @@ class Questions {
             type: 'input',
             message: 'Please Enter the Last Name Of the Employee You Would Like to Add',
             name: 'add_employee_last_name'
+        },
+        {
+            type: 'input',
+            message: 'Please Enter the ID of their role',
+            name: 'add_employee_id'
+        },
+        {
+            type: 'input',
+            message: 'Please Enter the ID of their managers/leave empty if none',
+            name: 'add_employee_manager'
         }
     ]
     update_employee_role = [
         {
             type: 'input',
-            message: 'Please Enter The ID or Full Name Of the Employee',
-            name: 'update_employee'
+            message: 'Please Enter The ID Of the Employee',
+            name: 'update_employee_id'
+        },
+        {
+            type: 'input',
+            message: 'Please Enter The ID Of the New Role',
+            name: 'update_employee_role_id'
         }
     ]  
 }
