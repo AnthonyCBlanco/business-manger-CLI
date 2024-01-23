@@ -2,39 +2,18 @@ const mysql = require('mysql2/promise');
 const user_input = require('./utils/user_input.js')
 const Questions = new(user_input)
 const inquirer = require('inquirer');
-const { Connection } = require('mysql2/typings/mysql/lib/Connection.js');
+const { Connection } = require('mysql2');
+
 
 function start(){   
-    inquirer.prompt(Questions.main).then((data) =>{
-        console.log(data.main)
-        
-         mysql.getConnection(
-            {
-                host: 'localhost',
-                user: 'root',
-                password: '1470',
-                database: 'employer_db'
-            },
-            console.log(db)
-        ).then((conn) =>{
-            const res = conn.query('SELECT * FROM role');
-            conn.release();
-            return res;
-        }).then((result) => {
-            console.log(result)
+    inquirer.prompt(Questions.main)
+        .then((data) => {
             switch(data.main){
-                case 'View All Roles':
-                   connection.query('SELECT * FROM role', function(err, results){
-                    console.log(results)})
+                case 'View All Roles' || 'View All Departments' || 'View All Employees':
+                    displayDATA(data.main)
                     break
                     
-                case 'View All Departments':
-                    displayDATA('departments')
-                    break
-    
-                case 'View All Employees':
-                    displayDATA('employee')
-                    break
+                
     
                 case 'Add Department':
                     inquirer.prompt(Questions.add_department).then((data) =>{
@@ -65,27 +44,33 @@ function start(){
                     break
             }
         })
-        })
-
-        
-}
-
-async function createConnection(){
-    const mysql = require('mysql2')
-    const conn = await mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '1470',
-        database: 'employer_db'
-    })
-    const [rows, fields] = await conn.execute('SELECT *')
-}
+    }
 
 function displayDATA(table){
-    db.query('SELECT * FROM ?', table, (err, result) =>{
-        if(err) console.log(err)
-        return result;
-    })
+    const Connection = require('./utils/database.js')
+    switch(table){
+        case 'View All Departments':
+            Connection.query('SELECT * FROM department', (err, result) =>{
+                if(err) console.log(err)
+                console.log(result)
+                start()
+            })
+        break
+        case 'View All Roles':
+            Connection.query('SELECT * FROM role', (err, result) =>{
+                if(err) console.log(err)
+                console.log(result)
+                start()
+            })
+        break
+        case 'View All Employees':
+            Connection.query('SELECT * FROM employee', (err, result) =>{
+                if(err) console.log(err)
+                console.log(result)
+                start()
+            })
+        break
+    }
 }
 
 function addNewData(table, newData){
