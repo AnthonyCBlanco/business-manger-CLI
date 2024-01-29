@@ -16,5 +16,6 @@ Once opened use the Arrow and "Enter" keys to navigate the CLI
 
 ## Video
 
-[bussness-CLI-DEMO.webm](https://github.com/AnthonyCBlanco/business-manger-CLI/assets/146141047/6789f3d7-1f97-4a19-8ccc-86df1607116a)
+
+[business-cli.webm](https://github.com/AnthonyCBlanco/business-manger-CLI/assets/146141047/e8c67cb8-38ab-44b3-a30e-822c8f76f443)
 
